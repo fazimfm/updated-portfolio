@@ -98,7 +98,7 @@ const Portfolio = () => {
                   {(project.id === 3 || project.id === 4 || project.id === 5 || project.id === 6) && <button className="btn btn-secondary" onClick={() => handleGitHub(project.id)}>Github</button>}
                 </div>
               )}
-            </div>
+``            </div>
           ))}
         </div>
       </div>

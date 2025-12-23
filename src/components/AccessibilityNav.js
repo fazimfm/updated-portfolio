@@ -16,16 +16,6 @@ const AccessibilityNav = () => {
   const [currentLocation, setCurrentLocation] = useState('entrance');
   const [transcript, setTranscript] = useState('');
 
-  const locations = {
-    entrance: { name: 'Store Entrance', next: ['fruits', 'vegetables', 'dairy'], description: 'Welcome to the store' },
-    fruits: { name: 'Fruits Section', next: ['vegetables', 'bakery'], description: 'Fresh fruits available' },
-    vegetables: { name: 'Vegetables Section', next: ['fruits', 'dairy'], description: 'Fresh vegetables here' },
-    dairy: { name: 'Dairy Section', next: ['frozen', 'checkout'], description: 'Milk and dairy products' },
-    bakery: { name: 'Bakery Section', next: ['checkout'], description: 'Fresh bread and pastries' },
-    frozen: { name: 'Frozen Foods', next: ['checkout'], description: 'Frozen items section' },
-    checkout: { name: 'Checkout Counter', next: ['entrance'], description: 'Payment counter ahead' }
-  };
-
   const speak = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.9;
@@ -94,7 +84,7 @@ const AccessibilityNav = () => {
           {isListening ? '🎤 Listening...' : '🎤 Voice Command'}
         </button>
         
-        <button onClick={() => speak(`You are at ${locations[currentLocation].name}`)}>
+        <button onClick={() => speak(`You are at ${LOCATIONS[currentLocation].name}`)}>
           📍 Where Am I?
         </button>
       </div>
