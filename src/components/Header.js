@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-        <img src="/fazii.jpeg" alt="FAZIM R" className="logo-image" />
+        <img src={`${process.env.PUBLIC_URL}/fazii.jpeg`} alt="FAZIM R" className="logo-image" />
         <nav>
           <ul>
             <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>

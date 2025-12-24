@@ -4,32 +4,31 @@ const Portfolio = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [currentVideo, setCurrentVideo] = useState('');
 
+  const videoMappings = {
+    3: 'ebbill.mp4',
+    4: 'weather (1).mp4',
+    5: 'to do list.mp4',
+    6: 'fmclg.mp4'
+  };
+
+  const githubMappings = {
+    3: 'https://github.com/fazimfm/unit-eb-bill-calculator',
+    4: 'https://github.com/fazimfm/weather-app',
+    5: 'https://github.com/fazimfm/to-do-list',
+    6: 'https://github.com/fazimfm/fm-clg-website'
+  };
+
   const handleLiveDemo = (projectId) => {
-    if (projectId === 3) {
-      setCurrentVideo('/ebbill.mp4');
-      setShowVideo(true);
-    } else if (projectId === 4) {
-      setCurrentVideo('/weather (1).mp4');
-      setShowVideo(true);
-    } else if (projectId === 5) {
-      setCurrentVideo('/to do list.mp4');
-      setShowVideo(true);
-    } else if (projectId === 6) {
-      setCurrentVideo('/fmclg.mp4');
+    const video = videoMappings[projectId];
+    if (video) {
+      setCurrentVideo(`${process.env.PUBLIC_URL}/${video}`);
       setShowVideo(true);
     }
   };
 
   const handleGitHub = (projectId) => {
-    if (projectId === 3) {
-      window.open('https://github.com/fazimfm/unit-eb-bill-calculator', '_blank');
-    } else if (projectId === 4) {
-      window.open('https://github.com/fazimfm/weather-app', '_blank');
-    } else if (projectId === 5) {
-      window.open('https://github.com/fazimfm/to-do-list', '_blank');
-    } else if (projectId === 6) {
-      window.open('https://github.com/fazimfm/fm-clg-website', '_blank');
-    }
+    const url = githubMappings[projectId];
+    if (url) window.open(url, '_blank');
   };
 
   const projects = [
@@ -92,13 +91,13 @@ const Portfolio = () => {
                   <span key={index} className="feature-tag">{feature}</span>
                 ))}
               </div>
-              {project.id !== 1 && project.id !== 2 && (
+              {project.id > 2 && (
                 <div className="project-actions">
                   <button className="btn btn-primary" onClick={() => handleLiveDemo(project.id)}>Video Demo</button>
-                  {(project.id === 3 || project.id === 4 || project.id === 5 || project.id === 6) && <button className="btn btn-secondary" onClick={() => handleGitHub(project.id)}>Github</button>}
+                  <button className="btn btn-secondary" onClick={() => handleGitHub(project.id)}>Github</button>
                 </div>
               )}
-``            </div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,0 +1,4 @@
+- [x] Refactor Portfolio.js: Replace if-else chains in handleLiveDemo and handleGitHub with object lookups
+- [x] Simplify button conditions in Portfolio.js
+- [x] Review Home.js for potential simplifications
+- [x] Check other components for reductions (no significant reductions found without changing output)

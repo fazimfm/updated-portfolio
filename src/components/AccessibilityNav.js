@@ -95,10 +95,10 @@ const AccessibilityNav = () => {
         <h3>Navigate To:</h3>
         <div className="nav-buttons">
           {LOCATIONS[currentLocation].next.map(dest => (
-            <button 
+            <button
               key={dest}
               onClick={() => navigate(dest)}
-              aria-label={`Navigate to ${locations[dest].name}`}
+              aria-label={`Navigate to ${LOCATIONS[dest].name}`}
             >
               ➡️ {LOCATIONS[dest].name}
             </button>

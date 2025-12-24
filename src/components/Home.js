@@ -9,16 +9,15 @@ const Home = () => {
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+    document.documentElement.classList.toggle('dark', theme === 'dark');
     try { localStorage.setItem('theme', theme); } catch (e) {}
   }, [theme]);
 
   const [isAnimating, setIsAnimating] = useState(false);
   const toggleTheme = () => {
     setIsAnimating(true);
-    setTheme((t) => t === 'dark' ? 'light' : 'dark');
-    window.setTimeout(() => setIsAnimating(false), 420);
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTimeout(() => setIsAnimating(false), 420);
   };
 
   return (
@@ -40,7 +39,7 @@ const Home = () => {
       </button>
       <section className="hero">
         <div className="container">
-          <img src="/fazii.jpeg" alt="Fazim" className="hero-image" />
+          <img src={`${process.env.PUBLIC_URL}/fazii.jpeg`} alt="Fazim" className="hero-image" />
           <h2>FAZIM R</h2>
           <p>Software Developer</p>
           <div className="hero-buttons">
@@ -70,7 +69,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <img src="/code.png" alt="Code" className="intro-image" />
+          <img src={`${process.env.PUBLIC_URL}/code.png`} alt="Code" className="intro-image" />
         </div>
       </section>
       
@@ -78,7 +77,7 @@ const Home = () => {
         <div className="container">
           <h3>Technical Expertise</h3>
           <div className="skills-layout">
-            <img src="/cod.png" alt="Coding" className="skills-side-image" />
+            <img src={`${process.env.PUBLIC_URL}/cod.png`} alt="Coding" className="skills-side-image" />
             <div className="skill-categories">
               <div className="skill-category">
                 <div className="skill-icon">🎨</div>
@@ -121,7 +120,7 @@ const Home = () => {
                 <Link to="/projects" className="project-link">Learn More →</Link>
               </div>
             </div>
-            <img src="/sys.png" alt="System" className="projects-side-image" />
+            <img src={`${process.env.PUBLIC_URL}/sys.png`} alt="System" className="projects-side-image" />
           </div>
         </div>
       </section>
@@ -134,7 +133,7 @@ const Home = () => {
               <p>Ready to bring your ideas to life? Let's discuss your next project.</p>
               <Link to="/contact" className="btn btn-primary">Get In Touch</Link>
             </div>
-            <img src="/coo.png" alt="Collaboration" className="cta-image" />
+            <img src={`${process.env.PUBLIC_URL}/coo.png`} alt="Collaboration" className="cta-image" />
           </div>
         </div>
       </section>
